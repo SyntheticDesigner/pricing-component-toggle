@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PriceCard from "./PriceCard";
 import { PriceWrap, PricingSection } from "./StyledComponents";
 import TglBtn from "./TglBtn";
@@ -26,23 +26,50 @@ const options = [
 ];
 //colors are hsla
 const theme = {
-  vLightColor: "240, 78%, 98%",
-  lightColor: "234, 14%, 74%",
-  color: "233, 13%, 49%",
-  darkColor: "232, 13%, 33%",
+  bgMain: "hsl(240, 78%, 98%)",
   gradient: `hsl(236, 72%, 79%),hsl(237, 63%, 64%)`,
+  primaryColor: "hsl(233, 13%, 49%)",
+  light: {
+    lightColor: "hsla(234, 14%, 74%, 0.5)",
+    primaryColor: "hsl(233, 13%, 49%)",
+    shadow: "hsla(233, 13%, 49%, 0.3)",
+    priceColor: "hsl(232, 13%, 33%)",
+    bgCard: `white`,
+    btnText: "hsl(240, 78%, 98%)",
+    bgBtn: `linear-gradient(
+      90deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
+  },
+  dark: {
+    lightColor: "hsla(234, 14%, 80%, 0.5)",
+    primaryColor: "hsl(240, 78%, 98%)",
+    shadow: "hsla(233, 13%, 49%, 0.3)",
+    priceColor: "white",
+    bgCard: `linear-gradient(
+      180deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
+    btnText: "hsl(237, 63%, 64%)",
+    bgBtn: `hsl(240, 78%, 98%)`,
+  },
 };
 
 export default function OurPricing() {
+  const [toggle, setToggle] = useState(true);
   return (
     <ThemeProvider theme={theme}>
       <PricingSection>
         <h1>Our Pricing</h1>
-        <TglBtn />
+        <TglBtn toggle={toggle} setToggle={setToggle}/>
         <PriceWrap>
-          {options.map((option) => (
-            <PriceCard key={option.name} option={option} />
-          ))}
+          {options.map((option, index) =>
+            index % 2 ? (
+              <ThemeProvider theme={theme.dark}>
+                <PriceCard key={option.name} option={option} toggle={toggle}/>
+              </ThemeProvider>
+            ) : (
+              <ThemeProvider theme={theme.light}>
+                <PriceCard key={option.name} option={option} toggle={toggle}/>
+              </ThemeProvider>
+            )
+          )}
         </PriceWrap>
       </PricingSection>
     </ThemeProvider>

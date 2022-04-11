@@ -1,11 +1,11 @@
 import React from "react";
 import { CardBox } from "./StyledComponents";
 
-export default function PriceCard({ option }) {
+export default function PriceCard({ option, toggle }) {
   return (
     <CardBox>
       <h1>{option.name}</h1>
-      <strong>{option.monthlyPrice}</strong>
+      <strong>{toggle?option.monthlyPrice:option.yearlyPrice}</strong>
       <hr />
       <ul>
         {option.features.map((feature, index) => (
@@ -15,7 +15,7 @@ export default function PriceCard({ option }) {
           </li>
         ))}
       </ul>
-      <button>Learn More</button>
+      <button>LEARN MORE</button>
     </CardBox>
   );
 }

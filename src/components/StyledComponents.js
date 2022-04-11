@@ -21,20 +21,26 @@ export const ToggleWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  label {
+    cursor: pointer;
+    font-weight: 600;
+    color: ${({theme})=>theme.primaryColor};
+  }
 `;
 
 export const Toggle = styled.button`
   position: relative;
-  padding: 10px 20px;
+  padding: 16px 28px;
   border: none;
   outline: none;
   background-image: linear-gradient(90deg, ${({ theme }) => theme.gradient});
-  border-radius: 10px;
+  border-radius: 20px;
   margin: 0px 16px;
+  cursor: pointer;
   &::before {
     content: "";
-    height: 16px;
-    width: 16px;
+    height: 24px;
+    width: 24px;
     background-color: white;
     position: absolute;
     top: 50%;
@@ -102,5 +108,11 @@ export const CardBox = styled.div`
     border-radius: 4px;
     font-weight: 600;
     color: ${({ theme }) => theme.btnText};
+    cursor: pointer;
+    &:hover {
+      background: none;
+      outline: 1px solid ${({ theme }) => theme.btnText2};
+      color: ${({ theme }) => theme.btnText2};
+    }
   }
 `;

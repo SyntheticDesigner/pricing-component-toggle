@@ -36,6 +36,7 @@ const theme = {
     priceColor: "hsl(232, 13%, 33%)",
     bgCard: `white`,
     btnText: "hsl(240, 78%, 98%)",
+    btnText2: "hsl(237, 63%, 64%)",
     bgBtn: `linear-gradient(
       90deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
     scale: "1",
@@ -48,6 +49,7 @@ const theme = {
     bgCard: `linear-gradient(
       180deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
     btnText: "hsl(237, 63%, 64%)",
+    btnText2: "hsl(240, 78%, 98%)",
     bgBtn: `hsl(240, 78%, 98%)`,
     scale: "1.1",
     zIndex: "2",

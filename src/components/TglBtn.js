@@ -4,9 +4,9 @@ import { Toggle, ToggleWrap } from "./StyledComponents";
 export default function TglBtn() {
   return (
     <ToggleWrap>
-      <label for='tglBtn'>Annually</label>
-      <Toggle id='tglBtn'>TglBtn</Toggle>
-      <label for='tglBtn'>Monthly</label>
+      <label htmlFor='tglBtn'>Annually</label>
+      <Toggle id='tglBtn' onClick={()=>{console.log("Click")}}></Toggle>
+      <label htmlFor='tglBtn'>Monthly</label>
     </ToggleWrap>
   );
 }

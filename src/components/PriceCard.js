@@ -8,9 +8,9 @@ export default function PriceCard({ option }) {
       <strong>{option.monthlyPrice}</strong>
       <hr />
       <ul>
-        {option.features.map((feature) => (
-          <li>
-            {feature}
+        {option.features.map((feature, index) => (
+          <li key={index}>
+            <p>{feature}</p>
             <hr />
           </li>
         ))}

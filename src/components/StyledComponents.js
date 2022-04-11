@@ -66,7 +66,7 @@ export const PriceWrap = styled.div`
 
 export const CardBox = styled.div`
   width: 90%;
-  max-width: 500px;
+  max-width: 400px;
   background: ${({ theme }) => theme.bgCard};
   padding: 40px 32px 16px;
   border-radius: 8px;

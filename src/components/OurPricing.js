@@ -38,6 +38,7 @@ const theme = {
     btnText: "hsl(240, 78%, 98%)",
     bgBtn: `linear-gradient(
       90deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
+    scale: "1",
   },
   dark: {
     lightColor: "hsla(234, 14%, 80%, 0.5)",
@@ -48,6 +49,8 @@ const theme = {
       180deg, hsl(236, 72%, 79%),hsl(237, 63%, 64%))`,
     btnText: "hsl(237, 63%, 64%)",
     bgBtn: `hsl(240, 78%, 98%)`,
+    scale: "1.1",
+    zIndex: "2",
   },
 };
 
@@ -57,16 +60,16 @@ export default function OurPricing() {
     <ThemeProvider theme={theme}>
       <PricingSection>
         <h1>Our Pricing</h1>
-        <TglBtn toggle={toggle} setToggle={setToggle}/>
+        <TglBtn toggle={toggle} setToggle={setToggle} />
         <PriceWrap>
           {options.map((option, index) =>
             index % 2 ? (
               <ThemeProvider theme={theme.dark}>
-                <PriceCard key={option.name} option={option} toggle={toggle}/>
+                <PriceCard key={option.name} option={option} toggle={toggle} />
               </ThemeProvider>
             ) : (
               <ThemeProvider theme={theme.light}>
-                <PriceCard key={option.name} option={option} toggle={toggle}/>
+                <PriceCard key={option.name} option={option} toggle={toggle} />
               </ThemeProvider>
             )
           )}

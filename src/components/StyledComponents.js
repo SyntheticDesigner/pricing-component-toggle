@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const PricingSection = styled.section`
   position: relative;
   padding: 16px;
-  background-color: ${({theme})=>theme.bgMain};
+  background-color: ${({ theme }) => theme.bgMain};
   background-image: url(${process.env.PUBLIC_URL + "/images/bg-top.svg"}),
     url(${process.env.PUBLIC_URL + "/images/bg-bottom.svg"});
   background-position: right top, left bottom;
@@ -11,7 +11,8 @@ export const PricingSection = styled.section`
   min-height: 100vh;
   & > h1 {
     padding: 16px 0px;
-    color: ${({theme})=>theme.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
+    font-size: 2em;
   }
 `;
 
@@ -27,10 +28,7 @@ export const Toggle = styled.button`
   padding: 10px 20px;
   border: none;
   outline: none;
-  background-image: linear-gradient(
-    90deg,
-    ${({theme})=>theme.gradient}
-  );
+  background-image: linear-gradient(90deg, ${({ theme }) => theme.gradient});
   border-radius: 10px;
   margin: 0px 16px;
   &::before {
@@ -43,47 +41,59 @@ export const Toggle = styled.button`
     left: 4px;
     border-radius: 50%;
     transition: transform 0.2s;
-    transform: ${({toggle})=>toggle?`translate(100%, -50%)`:`translate(0%, -50%)`};
+    transform: ${({ toggle }) =>
+      toggle ? `translate(100%, -50%)` : `translate(0%, -50%)`};
   }
 `;
 
 export const PriceWrap = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  flex-direction: row;
   margin-top: 16px;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 750px) {
+    gap: 32px;
+    flex-direction: column;
+  }
 `;
 
 export const CardBox = styled.div`
-  /* background-color: white; */
-  background: ${({theme})=>theme.bgCard};
-  padding: 16px;
+  width: 90%;
+  max-width: 500px;
+  background: ${({ theme }) => theme.bgCard};
+  padding: 40px 32px 16px;
   border-radius: 8px;
-  box-shadow: 0px 4px 16px ${({theme})=>theme.shadow};
+  box-shadow: 0px 4px 16px ${({ theme }) => theme.shadow};
+  @media (min-width: 750px) {
+    transform: scale(${({ theme }) => theme.scale});
+    ${({ theme }) => theme.zIndex && `z-index: ${theme.zIndex}`};
+  }
+
   hr {
     border: none;
-    border-bottom: 1px solid ${({theme})=>theme.lightColor};
+    border-bottom: 1px solid ${({ theme }) => theme.lightColor};
   }
   & > h1 {
     font-size: 1.2em;
-    color: ${({theme})=>theme.primaryColor};
+    color: ${({ theme }) => theme.primaryColor};
   }
   & > strong {
     display: inline-block;
-    font-size: 3em;
+    font-size: max(3em, min(5vw, 5em));
     padding: 16px;
-    color: ${({theme})=>theme.priceColor};
+    color: ${({ theme }) => theme.priceColor};
   }
   & > ul {
     list-style-type: none;
     p {
       padding: 8px 0px;
       font-weight: 600;
-      color: ${({theme})=>theme.primaryColor};
+      color: ${({ theme }) => theme.primaryColor};
     }
   }
   & > button {
-    background: ${({theme})=>theme.bgBtn};
+    background: ${({ theme }) => theme.bgBtn};
     border: none;
     outline: none;
     padding: 10px;
@@ -91,6 +101,6 @@ export const CardBox = styled.div`
     margin: 32px 0px;
     border-radius: 4px;
     font-weight: 600;
-    color: ${({theme})=>theme.btnText};
+    color: ${({ theme }) => theme.btnText};
   }
 `;

@@ -1,8 +1,12 @@
-import React from 'react'
-import { Toggle } from './StyledComponents'
+import React from "react";
+import { Toggle, ToggleWrap } from "./StyledComponents";
 
 export default function TglBtn() {
   return (
-    <Toggle>TglBtn</Toggle>
-  )
+    <ToggleWrap>
+      <label for='tglBtn'>Annually</label>
+      <Toggle id='tglBtn'>TglBtn</Toggle>
+      <label for='tglBtn'>Monthly</label>
+    </ToggleWrap>
+  );
 }
